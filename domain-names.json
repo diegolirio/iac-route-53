@@ -1,0 +1,10 @@
+{
+    "Parameters": {
+        "main": "aphrodite.world",
+        "subdomains": [
+            { "subdomain": "www" },
+            { "subdomain": "dev" },
+            { "subdomain": "test" }
+        ]
+    }
+}
