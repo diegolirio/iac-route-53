@@ -29,8 +29,16 @@ Resources:
             DNSName: s3-website.us-east-2.amazonaws.com
             EvaluateTargetHealth: true
             HostedZoneId: Z2O1EMRO9K5GLX
-          Name: test2.aphrodite.world
-          SetIdentifier: Z09226481WGGUC2SQR8OB
+          Name: test.aphrodite.world
+          SetIdentifier: test.aphrodite.world
+          Type: A
+          Weight: 100
+        - AliasTarget: 
+            DNSName: s3-website.us-east-2.amazonaws.com
+            EvaluateTargetHealth: true
+            HostedZoneId: Z2O1EMRO9K5GLX
+          Name: hom.aphrodite.world
+          SetIdentifier: hom.aphrodite.world
           #TTL: "60"
           Type: A
           #Comment: String
@@ -46,4 +54,4 @@ Resources:
           #Region: us-east-2
           #ResourceRecords: 
           #  - test.aphrodite.world
-          Weight: 100
+          Weight: 100          
