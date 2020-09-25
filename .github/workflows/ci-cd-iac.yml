@@ -26,6 +26,6 @@ jobs:
 
       # https://github.com/marketplace/actions/aws-cloudformation-deploy-cloudformation-stack-action-for-github-actions
 
-      - name: Deploy via CloudFormation
+      - name: UnDeploy
         run: |
             echo "Delete Stack"
