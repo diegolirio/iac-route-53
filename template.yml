@@ -50,20 +50,19 @@ Mappings:
 Parameters:
   DomainMainName:
     Type: String
-    Default: springhome.com.br
+    
   DevelopSubdomain:
     Type: String
-    Default: develop
-
-  HostedZoneIdSpringHome:
+    
+  HostedZoneIdCustom:
     Type: String
-    Default: Z09566621JJ0FEKAVR4MG #AWS::Route53::HostedZone::Id
+    Default: Z09566621JJ0FEKAVR4MG
 
 Resources:
-  RecordSetGroupAphroditeWorld:
+  RecordSetGroupMine:
     Type: AWS::Route53::RecordSetGroup
     Properties: 
-      HostedZoneId: !Ref HostedZoneIdSpringHome
+      HostedZoneId: !Ref HostedZoneIdCustom
       RecordSets: 
         - AliasTarget: 
             DNSName: !FindInMap [ S3HostingZoneMap, !Ref "AWS::Region", "S3HostingEndpoint" ]

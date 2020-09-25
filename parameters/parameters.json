@@ -1,0 +1,8 @@
+{
+    "Parameters": {
+        "StackName": "Route53SpringComBR",
+        "HostedZoneIdCustom": "Z09566621JJ0FEKAVR4MG",
+        "DomainMainName": "springhome.com.br",
+        "DevelopSubdomain": "develop"
+    }
+}
