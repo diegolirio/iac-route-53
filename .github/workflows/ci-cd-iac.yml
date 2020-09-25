@@ -3,15 +3,13 @@ name: CI/CD - Infra as Code - Route 53
 on: 
   push:
     branches:
-      - eprogramar
+      - rollback
 
 jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -19,16 +17,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # - name: Deploy to AWS CloudFormation
+      #   uses: aws-actions/aws-cloudformation-github-deploy@v1
+      #   with:
+      #     name: MyStack
+      #     template: myStack.yaml
+      #     parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"          
+
+      # https://github.com/marketplace/actions/aws-cloudformation-deploy-cloudformation-stack-action-for-github-actions
+
       - name: Deploy via CloudFormation
         run: |
-            StackName=$(jq '.Parameters.StackName'          ./parameters/parameters.json | sed -e 's/"//g')
-            DomainMainName=$(jq '.Parameters.DomainMainName'     ./parameters/parameters.json | sed -e 's/"//g')
-            DevelopSubdomain=$(jq '.Parameters.DevelopSubdomain'   ./parameters/parameters.json | sed -e 's/"//g')
-            HostedZoneIdCustom=$(jq '.Parameters.HostedZoneIdCustom' ./parameters/parameters.json | sed -e 's/"//g')
-
-            echo "StackName =====> $StackName"
-            echo "DomainMainName =====> $DomainMainName"
-            echo "DevelopSubdomain =======> $DevelopSubdomain"
-            echo "HostedZoneIdCustom ========> $HostedZoneIdCustom" 
-
-            aws cloudformation deploy --template-file template.yml --stack-name $StackName --parameter-overrides DomainMainName=$DomainMainName DevelopSubdomain=$DevelopSubdomain HostedZoneIdCustom=$HostedZoneIdCustom --tags Name=LirioTech 
+            echo "Delete Stack"
