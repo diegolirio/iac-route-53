@@ -29,6 +29,6 @@ jobs:
             echo "StackName =====> $StackName"
             echo "DomainMainName =====> $DomainMainName"
             echo "DevelopSubdomain =======> $DevelopSubdomain"
-            echo "HostedZoneIdCustom ========> $HostedZoneIdCustom"
+            echo "HostedZoneIdCustom ========> $HostedZoneIdCustom" 
 
             aws cloudformation deploy --template-file template.yml --stack-name $StackName --parameter-overrides DomainMainName=$DomainMainName DevelopSubdomain=$DevelopSubdomain HostedZoneIdCustom=$HostedZoneIdCustom --tags Name=LirioTech 
