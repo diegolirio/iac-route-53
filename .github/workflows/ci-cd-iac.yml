@@ -21,7 +21,6 @@ jobs:
 
       - name: Deploy via CloudFormation
         run: |
-                  
             StackName=$(jq '.Parameters.StackName'          ./parameters/parameters.json | sed -e 's/"//g')
             DomainMainName=$(jq '.Parameters.DomainMainName'     ./parameters/parameters.json | sed -e 's/"//g')
             DevelopSubdomain=$(jq '.Parameters.DevelopSubdomain'   ./parameters/parameters.json | sed -e 's/"//g')
