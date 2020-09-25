@@ -1,4 +1,4 @@
-name: CI/CD - Infra as Code - Route 53
+name: Rollback - Infra as Code - Route 53
 
 on: 
   push:
